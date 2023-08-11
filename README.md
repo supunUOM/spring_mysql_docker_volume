@@ -58,6 +58,9 @@ Before you begin, ensure you have the following installed:
    - When you're done, stop the application using:
        ```sh
       docker-compose down
+   - To observe the container volume qualities check the db container restart, Data still remain:
+       ```sh
+       docker restart <mysql_container_id>
    - This command will stop and remove the containers, but your data will persist in the Docker volumes.
 
 ### 6. Configuration
