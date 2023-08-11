@@ -27,13 +27,32 @@ Before you begin, ensure you have the following installed:
    - This command will start the Spring Boot application and the MySQL database. It will create a Docker network to connect the services.
 ### 4. Access the application:
 
-   - Spring Boot App: http://localhost:8080
+   - Spring Applicatiion:
+     - Host: localhost
+     - Port: 8080
+
+
    - MySQL Database: 
      - Host: localhost
      - Port: 3306
      - Username: springuser
      - Password: spring_password
      - Database: springdb
+
+* Testing end points
+* Save the employee
+#### 1. POST ```http://localhost:8080/api/v1/employee```
+###### Request Body
+```
+{
+    "id": 1,
+    "name": "supun",
+    "age": 33
+}
+```
+
+* Get All employees
+#### 2. GET ```http://localhost:8080/api/v1/employees```
   
 ### 5. Stop and clean up:
    - When you're done, stop the application using:
