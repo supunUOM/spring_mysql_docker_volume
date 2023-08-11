@@ -1,9 +1,9 @@
-package com.supun.spring_mqsql_dockerize.service;
+package supun.volumedockerize.service;
 
-import com.supun.spring_mqsql_dockerize.entity.Employee;
-import com.supun.spring_mqsql_dockerize.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import supun.volumedockerize.entity.Employee;
+import supun.volumedockerize.repository.EmployeeRepository;
 
 import java.util.List;
 
