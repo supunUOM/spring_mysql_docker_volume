@@ -20,7 +20,8 @@ Before you begin, ensure you have the following installed:
 ### 2. Update the docker-compose.yml file:
 
    - Replace your-spring-app-image:tag with the actual image and tag of your Spring Boot application.
-
+   #### ==== OR ====
+   - You can use the ```docker-compose up --build``` command to automatically build the specified tag related image mentioned in the docker-compose file.
 ### 3. Run the application:
       docker-compose up
    - This command will start the Spring Boot application and the MySQL database. It will create a Docker network to connect the services.
