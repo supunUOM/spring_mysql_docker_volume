@@ -1,0 +1,49 @@
+version: '3'
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: http_logger
+      MYSQL_USER: supun
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    networks:
+      - logger-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  http-logger:
+    image: http-logger:v1.8.0
+    container_name: http-logger
+    ports:
+      - "8080:8080"
+    build: .
+    depends_on:
+      mysql :
+        condition: service_healthy
+    networks:
+      - logger-network
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DB: http_logger
+      MYSQL_USER: supun
+      MYSQL_PASSWORD: password
+
+networks:
+  logger-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    
+    
+#docker exec -it mysql mysql -u root -ppassword  #login to mysql container shell
