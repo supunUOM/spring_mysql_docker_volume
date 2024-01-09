@@ -45,5 +45,5 @@ networks:
 volumes:
   mysql-data:
     
-    
+# when mysql container is healthy, Then start spring app
 #docker exec -it mysql mysql -u root -ppassword  #login to mysql container shell
